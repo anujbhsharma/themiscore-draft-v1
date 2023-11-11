@@ -288,7 +288,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background-color: var(--dl-color-primary1-blue80);
+  background-color: #000000;
 }
 .home-hero1 {
   width: 100%;
@@ -372,6 +372,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #000000;
 }
 .home-details1 {
   width: 100%;
@@ -913,6 +914,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #000000;
 }
 .home-gallery1 {
   gap: var(--dl-space-space-oneandhalfunits);
