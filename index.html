@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,26 +14,51 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         }
-        
+
         .card-hover {
             transition: all 0.3s ease;
         }
+
         .glassmorphism {
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-}
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
 
-.group:hover .group-hover\:transform {
-    transform: scale(1.1);
-}
+        .scroll-dot {
+            min-width: 2rem;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            will-change: width;
+            position: relative;
+            overflow: hidden;
+        }
 
-.group:hover .group-hover\:scale-110 {
-    --tw-scale-x: 1.1;
-    --tw-scale-y: 1.1;
-    transform: var(--tw-transform);
-}
+        .scroll-dot.active {
+            width: 4rem;
+            /* 64px */
+            background-color: rgb(220, 38, 38) !important;
+            /* red-600 */
+        }
+
+        /* Remove any default link styles */
+        .scroll-dot:focus {
+            outline: none;
+        }
+
+        .group:hover .group-hover\:transform {
+            transform: scale(1.1);
+        }
+
+        .group:hover .group-hover\:scale-110 {
+            --tw-scale-x: 1.1;
+            --tw-scale-y: 1.1;
+            transform: var(--tw-transform);
+        }
+
         .card-hover:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -43,8 +69,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         .bg-gradient-custom {
@@ -54,11 +87,11 @@
         .success-message {
             display: none;
         }
-        
+
         .form-submitted .success-message {
             display: block;
         }
-        
+
         .form-submitted form {
             display: none;
         }
@@ -70,14 +103,37 @@
         }
     </style>
 </head>
+
 <body class="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-100">
     <!-- Animated Background Shapes -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-0 left-0 w-72 h-72 bg-red-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
-        <div class="absolute top-1/3 right-0 w-96 h-96 bg-yellow-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 2s"></div>
-        <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 4s"></div>
+        <div
+            class="absolute top-0 left-0 w-72 h-72 bg-red-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float">
+        </div>
+        <div class="absolute top-1/3 right-0 w-96 h-96 bg-yellow-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
+            style="animation-delay: 2s"></div>
+        <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
+            style="animation-delay: 4s"></div>
+    </div>
+    <!-- Scroll Progress Indicator -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+        <div id="scroll-progress" class="h-full bg-red-600 transition-all duration-100" style="width: 0%"></div>
     </div>
 
+
+    <!-- Active Section Indicator -->
+    <div class="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 hidden md:flex flex-col space-y-4">
+        <a href="#features" class="scroll-dot bg-gray-300 hover:bg-red-600 transition-all duration-300 ease-in-out"
+            data-section="features"></a>
+        <a href="#pricing" class="scroll-dot bg-gray-300 hover:bg-red-600 transition-all duration-300 ease-in-out"
+            data-section="pricing"></a>
+        <a href="#testimonials" class="scroll-dot bg-gray-300 hover:bg-red-600 transition-all duration-300 ease-in-out"
+            data-section="testimonials"></a>
+        <a href="#demo" class="scroll-dot bg-gray-300 hover:bg-red-600 transition-all duration-300 ease-in-out"
+            data-section="demo"></a>
+        <a href="#contact" class="scroll-dot bg-gray-300 hover:bg-red-600 transition-all duration-300 ease-in-out"
+            data-section="contact"></a>
+    </div>
     <!-- Navigation -->
     <nav class="relative z-10 glassmorphism">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -112,20 +168,24 @@
             </div>
             <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-7xl">
                 <span class="block mb-2">Simplify your Legal Research</span>
-                <span class="block text-red-600 bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-500 to-red-600">
+                <span
+                    class="block text-red-600 bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-500 to-red-600">
                     Powered by AI
                 </span>
             </h1>
             <p class="max-w-md mx-auto mt-6 text-lg text-gray-500 sm:text-xl md:mt-8 md:max-w-3xl">
-                Experience the next generation of legal technology. Streamline your workflow, enhance accuracy, and focus on what matters most - your clients.
+                Experience the next generation of legal technology. Streamline your workflow, enhance accuracy, and
+                focus on what matters most - your clients.
             </p>
-            
+
             <!-- Hero CTA -->
             <div class="mt-8 flex justify-center space-x-4">
-                <a href="#demo" class="px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors shadow-lg">
+                <a href="#demo"
+                    class="px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors shadow-lg">
                     Watch Demo
                 </a>
-                <a href="#contact" class="px-8 py-3 bg-white text-red-600 rounded-lg hover:bg-red-50 transition-colors shadow-lg">
+                <a href="#contact"
+                    class="px-8 py-3 bg-white text-red-600 rounded-lg hover:bg-red-50 transition-colors shadow-lg">
                     Get Started
                 </a>
             </div>
@@ -165,7 +225,8 @@
                         <i data-lucide="scale" class="w-6 h-6 text-red-600"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Legal Research Automation</h3>
-                    <p class="text-gray-600 mb-4">Cut research time by 70% with AI-powered case law analysis. Our advanced algorithms process thousands of documents in minutes.</p>
+                    <p class="text-gray-600 mb-4">Cut research time by 70% with AI-powered case law analysis. Our
+                        advanced algorithms process thousands of documents in minutes.</p>
                     <ul class="text-sm text-gray-500 space-y-2">
                         <li class="flex items-center">
                             <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
@@ -181,13 +242,14 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="glassmorphism p-8 rounded-xl card-hover">
                     <div class="inline-block p-3 bg-red-50 rounded-lg mb-4">
                         <i data-lucide="book" class="w-6 h-6 text-red-600"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Document Analysis</h3>
-                    <p class="text-gray-600 mb-4">Review contracts and legal documents in minutes. AI-powered analysis identifies key clauses and potential risks.</p>
+                    <p class="text-gray-600 mb-4">Review contracts and legal documents in minutes. AI-powered analysis
+                        identifies key clauses and potential risks.</p>
                     <ul class="text-sm text-gray-500 space-y-2">
                         <li class="flex items-center">
                             <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
@@ -209,7 +271,8 @@
                         <i data-lucide="sparkles" class="w-6 h-6 text-red-600"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Predictive Analytics</h3>
-                    <p class="text-gray-600 mb-4">Get data-driven insights for better case outcomes. Advanced analytics help predict case success rates.</p>
+                    <p class="text-gray-600 mb-4">Get data-driven insights for better case outcomes. Advanced analytics
+                        help predict case success rates.</p>
                     <ul class="text-sm text-gray-500 space-y-2">
                         <li class="flex items-center">
                             <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
@@ -237,217 +300,228 @@
             <div class="max-w-3xl mx-auto glassmorphism p-8 rounded-xl">
                 <!-- YouTube Video Container -->
                 <div class="relative" style="padding-bottom: 56.25%;">
-                    <iframe 
-                        class="absolute top-0 left-0 w-full h-full rounded-lg"
+                    <iframe class="absolute top-0 left-0 w-full h-full rounded-lg"
                         src="https://www.youtube.com/embed/yFFzFFrFT9w?rel=0&si=0qAzrtq5vMC_dpUM"
                         title="Themiscore Demo Video"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                     </iframe>
                 </div>
-                <p class="mt-4 text-center text-gray-600">Watch our 2-minute demo to see how Themiscore can transform your legal practice</p>
+                <p class="mt-4 text-center text-gray-600">Watch our 2-minute demo to see how Themiscore can transform
+                    your legal practice</p>
             </div>
         </div>
     </section>
 
-    
-        <!-- Pricing Section -->
-        <section id="pricing" class="py-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-center mb-12">Simple, Transparent Pricing</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="glassmorphism p-8 rounded-xl card-hover">
-                        <h3 class="text-xl font-semibold mb-4">Starter</h3>
-                        <div class="text-4xl font-bold mb-4">$99<span class="text-lg text-gray-500">/mo</span></div>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                                Basic legal research
-                            </li>
-                            <li class="flex items-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                                5 document analyses per month
-                            </li>
-                            <li class="flex items-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                                Email support
-                            </li>
-                        </ul>
-                        <button class="w-full py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-                            Get Started
-                        </button>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Simple, Transparent Pricing</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glassmorphism p-8 rounded-xl card-hover">
+                    <h3 class="text-xl font-semibold mb-4">Starter</h3>
+                    <div class="text-4xl font-bold mb-4">$99<span class="text-lg text-gray-500">/mo</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Basic legal research
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            5 document analyses per month
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Email support
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                        Get Started
+                    </button>
+                </div>
+
+                <div class="glassmorphism p-8 rounded-xl card-hover scale-105 border-2 border-red-200">
+                    <div
+                        class="absolute top-0 right-0 -translate-y-1/2 px-4 py-1 bg-red-600 text-white rounded-full text-sm">
+                        Most Popular
                     </div>
-    
-                    <div class="glassmorphism p-8 rounded-xl card-hover scale-105 border-2 border-red-200">
-                        <div class="absolute top-0 right-0 -translate-y-1/2 px-4 py-1 bg-red-600 text-white rounded-full text-sm">
-                            Most Popular
+                    <h3 class="text-xl font-semibold mb-4">Professional</h3>
+                    <div class="text-4xl font-bold mb-4">$199<span class="text-lg text-gray-500">/mo</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Advanced legal research
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            20 document analyses per month
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Priority support
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Predictive analytics
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                        Get Started
+                    </button>
+                </div>
+
+                <div class="glassmorphism p-8 rounded-xl card-hover">
+                    <h3 class="text-xl font-semibold mb-4">Enterprise</h3>
+                    <div class="text-4xl font-bold mb-4">Custom</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Unlimited research
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Unlimited document analyses
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            24/7 dedicated support
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Custom integrations
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Themiscore?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glassmorphism p-6 rounded-xl card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i data-lucide="search" class="w-6 h-6 text-blue-600"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-4">Professional</h3>
-                        <div class="text-4xl font-bold mb-4">$199<span class="text-lg text-gray-500">/mo</span></div>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                                Advanced legal research
-                            </li>
-                            <li class="flex items-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                                20 document analyses per month
-                            </li>
-                            <li class="flex items-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                                Priority support
-                            </li>
-                            <li class="flex items-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                                Predictive analytics
-                            </li>
-                        </ul>
-                        <button class="w-full py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-                            Get Started
-                        </button>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Advanced Legal Research</h4>
+                        </div>
                     </div>
-    
-                    <div class="glassmorphism p-8 rounded-xl card-hover">
-                        <h3 class="text-xl font-semibold mb-4">Enterprise</h3>
-                        <div class="text-4xl font-bold mb-4">Custom</div>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                                Unlimited research
-                            </li>
-                            <li class="flex items-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                                Unlimited document analyses
-                            </li>
-                            <li class="flex items-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                                24/7 dedicated support
-                            </li>
-                            <li class="flex items-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>
-                                Custom integrations
-                            </li>
-                        </ul>
-                        <button class="w-full py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-                            Contact Sales
-                        </button>
+                    <p class="text-gray-600">Our cutting-edge legal research platform helps you find relevant cases and
+                        precedents in minutes, not hours.</p>
+                    <div class="flex mt-4">
+                        <span class="text-blue-600 text-sm font-medium hover:text-blue-700 cursor-pointer">Learn more
+                            →</span>
+                    </div>
+                </div>
+
+                <div class="glassmorphism p-6 rounded-xl card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                            <i data-lucide="trending-up" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Predictive Analytics</h4>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">Make informed decisions with our advanced analytics tools that analyze
+                        historical case data and outcomes.</p>
+                    <div class="flex mt-4">
+                        <span class="text-green-600 text-sm font-medium hover:text-green-700 cursor-pointer">Explore
+                            features →</span>
+                    </div>
+                </div>
+
+                <div class="glassmorphism p-6 rounded-xl card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                            <i data-lucide="users" class="w-6 h-6 text-purple-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Perfect for All Practices</h4>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">Whether you're a solo practitioner or large firm, our platform scales to
+                        meet your needs and budget.</p>
+                    <div class="flex mt-4">
+                        <span class="text-purple-600 text-sm font-medium hover:text-purple-700 cursor-pointer">View
+                            pricing →</span>
                     </div>
                 </div>
             </div>
-        </section>
-    
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-16 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-center mb-12">Why Choose Themiscore?</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="glassmorphism p-6 rounded-xl card-hover">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-                                <i data-lucide="search" class="w-6 h-6 text-blue-600"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold">Advanced Legal Research</h4>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">Our cutting-edge legal research platform helps you find relevant cases and precedents in minutes, not hours.</p>
-                        <div class="flex mt-4">
-                            <span class="text-blue-600 text-sm font-medium hover:text-blue-700 cursor-pointer">Learn more →</span>
-                        </div>
-                    </div>
-    
-                    <div class="glassmorphism p-6 rounded-xl card-hover">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                                <i data-lucide="trending-up" class="w-6 h-6 text-green-600"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold">Predictive Analytics</h4>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">Make informed decisions with our advanced analytics tools that analyze historical case data and outcomes.</p>
-                        <div class="flex mt-4">
-                            <span class="text-green-600 text-sm font-medium hover:text-green-700 cursor-pointer">Explore features →</span>
-                        </div>
-                    </div>
-    
-                    <div class="glassmorphism p-6 rounded-xl card-hover">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
-                                <i data-lucide="users" class="w-6 h-6 text-purple-600"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold">Perfect for All Practices</h4>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">Whether you're a solo practitioner or large firm, our platform scales to meet your needs and budget.</p>
-                        <div class="flex mt-4">
-                            <span class="text-purple-600 text-sm font-medium hover:text-purple-700 cursor-pointer">View pricing →</span>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-16 relative overflow-hidden">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glassmorphism p-8 rounded-2xl relative z-10">
+                <h2 class="text-3xl font-bold text-center mb-8">Get Started Today</h2>
+
+                <div class="success-message">
+                    <div class="mb-6 bg-green-50 border-green-100 relative pl-12 p-4 rounded">
+                        <i data-lucide="check" class="absolute left-4 top-4 h-4 w-4 text-green-600"></i>
+                        <div class="text-green-800">
+                            Thanks for your interest! We'll be in touch shortly.
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    
-        <!-- Contact Form Section -->
-        <section id="contact" class="py-16 relative overflow-hidden">
-            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="glassmorphism p-8 rounded-2xl relative z-10">
-                    <h2 class="text-3xl font-bold text-center mb-8">Get Started Today</h2>
-                    
-                    <div class="success-message">
-                        <div class="mb-6 bg-green-50 border-green-100 relative pl-12 p-4 rounded">
-                            <i data-lucide="check" class="absolute left-4 top-4 h-4 w-4 text-green-600"></i>
-                            <div class="text-green-800">
-                                Thanks for your interest! We'll be in touch shortly.
-                            </div>
+
+                <form action="https://formspree.io/f/xkgnblel" method="POST" id="contact-form" class="space-y-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Work Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
+                        </div>
+
+                        <div>
+                            <label for="firmName" class="block text-sm font-medium text-gray-700 mb-1">Law Firm
+                                Name</label>
+                            <input type="text" id="firmName" name="firmName" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
+                        </div>
+
+                        <div>
+                            <label for="size" class="block text-sm font-medium text-gray-700 mb-1">Firm Size</label>
+                            <select id="size" name="size" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
+                                <option value="">Select size</option>
+                                <option value="solo">Solo Practice</option>
+                                <option value="small">2-10 Attorneys</option>
+                                <option value="medium">11-50 Attorneys</option>
+                                <option value="large">50+ Attorneys</option>
+                            </select>
                         </div>
                     </div>
-    
-                    <form action="https://formspree.io/f/xkgnblel" method="POST" id="contact-form" class="space-y-6">
-                        <div class="space-y-4">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                                <input type="text" id="name" name="name" required
-                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
-                            </div>
-                            
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Work Email</label>
-                                <input type="email" id="email" name="email" required
-                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
-                            </div>
-                            
-                            <div>
-                                <label for="firmName" class="block text-sm font-medium text-gray-700 mb-1">Law Firm Name</label>
-                                <input type="text" id="firmName" name="firmName" required
-                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
-                            </div>
-    
-                            <div>
-                                <label for="size" class="block text-sm font-medium text-gray-700 mb-1">Firm Size</label>
-                                <select id="size" name="size" required
-                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
-                                    <option value="">Select size</option>
-                                    <option value="solo">Solo Practice</option>
-                                    <option value="small">2-10 Attorneys</option>
-                                    <option value="medium">11-50 Attorneys</option>
-                                    <option value="large">50+ Attorneys</option>
-                                </select>
-                            </div>
-                        </div>
-    
-                        <button type="submit"
-                            class="w-full flex items-center justify-center px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all">
-                            <i data-lucide="send" class="w-5 h-5 mr-2"></i>
-                            Get Started
-                        </button>
-                    </form>
-                </div>
+
+                    <button type="submit"
+                        class="w-full flex items-center justify-center px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all">
+                        <i data-lucide="send" class="w-5 h-5 mr-2"></i>
+                        Get Started
+                    </button>
+                </form>
             </div>
-        </section>
-    
-<!-- Previous sections remain the same until footer -->
+        </div>
+    </section>
+
+    <!-- Previous sections remain the same until footer -->
 
     <!-- Footer continued -->
     <footer class="bg-white border-t border-gray-100">
@@ -460,7 +534,7 @@
                     </div>
                     <p class="mt-4 text-gray-500 text-sm">Empowering legal professionals with AI-driven solutions.</p>
                 </div>
-                
+
                 <div>
                     <h4 class="font-semibold mb-4">Product</h4>
                     <ul class="space-y-2 text-sm text-gray-500">
@@ -490,7 +564,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="mt-8 pt-8 border-t border-gray-200">
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <p class="text-gray-500 text-sm">&copy; 2024 Themiscore. All rights reserved.</p>
@@ -532,13 +606,94 @@
 
     <script>
         // Initialize Lucide icons
+        // Initialize Lucide icons
         lucide.createIcons();
+
+        // Scroll Progress Indicator
+        function updateScrollProgress() {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            document.getElementById('scroll-progress').style.width = `${scrolled}%`;
+        }
+
+        // Function to get current section
+        function getCurrentSection() {
+            const sections = ['features', 'pricing', 'testimonials', 'demo', 'contact'];
+            const viewportMiddle = window.innerHeight / 2;
+
+            for (const sectionId of sections) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    // Check if the section's middle point is near the viewport's middle
+                    const sectionMiddle = rect.top + (rect.height / 2);
+
+                    // If section middle is within the middle third of viewport
+                    if (Math.abs(sectionMiddle - viewportMiddle) < (window.innerHeight / 3)) {
+                        return sectionId;
+                    }
+                }
+            }
+            return null;
+        }
+
+        // Function to update active dot
+        function updateActiveDot() {
+            const currentSection = getCurrentSection();
+            document.querySelectorAll('.scroll-dot').forEach(dot => {
+                const sectionId = dot.getAttribute('data-section');
+                if (sectionId === currentSection) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Add scroll event listener with debouncing
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                window.cancelAnimationFrame(scrollTimeout);
+            }
+
+            scrollTimeout = window.requestAnimationFrame(() => {
+                updateScrollProgress();
+                updateActiveDot();
+            });
+        });
+
+        // Handle dot clicks
+        document.querySelectorAll('.scroll-dot').forEach(dot => {
+            dot.addEventListener('click', function (e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                const targetSection = document.getElementById(sectionId);
+
+                if (targetSection) {
+                    // Update URL without jump
+                    history.pushState(null, null, `#${sectionId}`);
+
+                    // Smooth scroll to section
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+
+                    // Update active state immediately
+                    document.querySelectorAll('.scroll-dot').forEach(d => {
+                        d.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
 
         // Mobile menu functionality
         const mobileMenu = document.getElementById('mobile-menu');
         const menuButton = document.querySelector('[data-lucide="menu"]').parentElement;
         const closeButton = document.getElementById('close-menu');
-        
+
         menuButton.addEventListener('click', () => {
             mobileMenu.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -566,7 +721,7 @@
                     // Close mobile menu if open
                     mobileMenu.classList.add('hidden');
                     document.body.style.overflow = 'auto';
-                    
+
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -578,63 +733,49 @@
         // Form handling
         const form = document.getElementById('contact-form');
         if (form) {
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 const formContainer = form.parentElement;
                 const submitButton = form.querySelector('button[type="submit"]');
-                
+
                 // Add loading state
                 submitButton.disabled = true;
                 submitButton.innerHTML = `
-                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Processing...
-                `;
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Processing...
+        `;
 
                 // Handle form submission success
-                form.addEventListener('formspree:submit', function() {
+                form.addEventListener('formspree:submit', function () {
                     formContainer.classList.add('form-submitted');
                 });
             });
         }
-// YouTube Video Handling
-document.addEventListener('DOMContentLoaded', function() {
-    const videoPlaceholder = document.getElementById('video-placeholder');
-    const videoIframe = document.getElementById('video-iframe');
-    
-    if (videoPlaceholder && videoIframe) {
-        videoPlaceholder.addEventListener('click', function() {
-            // Show iframe
-            videoIframe.classList.remove('hidden');
-            // Hide placeholder
-            videoPlaceholder.classList.add('hidden');
-            // Set the actual YouTube source
-            const iframe = videoIframe.querySelector('iframe');
-            iframe.src = iframe.getAttribute('data-src');
-        });
-    }
-});
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initial scroll position check
+            updateScrollProgress();
+            updateActiveDot();
+
+            // Handle direct links to sections
+            if (window.location.hash) {
+                const sectionId = window.location.hash.substring(1);
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    setTimeout(() => {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                        updateActiveDot();
+                    }, 100);
                 }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
-            observer.observe(section);
+            }
         });
     </script>
 </body>
+
 </html>
