@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,27 +8,25 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
         .glassmorphism {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
         .card-hover {
             transition: all 0.3s ease;
         }
 
-        .glassmorphism {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
         }
 
         .scroll-dot {
-            min-width: 2rem;
-            width: 2rem;
-            height: 2rem;
+            min-width: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
             border-radius: 9999px;
             transition: all 0.3s ease;
             will-change: width;
@@ -38,30 +35,22 @@
         }
 
         .scroll-dot.active {
-            width: 4rem;
-            /* 64px */
-            background-color: rgb(220, 38, 38) !important;
-            /* red-600 */
+            width: 3rem;
+            background-color: rgb(59, 130, 246) !important;
         }
 
-        /* Remove any default link styles */
         .scroll-dot:focus {
             outline: none;
         }
 
         .group:hover .group-hover\:transform {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .group:hover .group-hover\:scale-110 {
-            --tw-scale-x: 1.1;
-            --tw-scale-y: 1.1;
+            --tw-scale-x: 1.05;
+            --tw-scale-y: 1.05;
             transform: var(--tw-transform);
-        }
-
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .animate-float {
@@ -69,19 +58,12 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
         }
 
         .bg-gradient-custom {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
         }
 
         .success-message {
@@ -101,58 +83,69 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Refined background shapes */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            mix-blend-mode: multiply;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
     </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-100">
-    <!-- Animated Background Shapes -->
+<body class="min-h-screen">
+    <!-- Background Shapes -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div
-            class="absolute top-0 left-0 w-72 h-72 bg-red-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float">
-        </div>
-        <div class="absolute top-1/3 right-0 w-96 h-96 bg-yellow-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
-            style="animation-delay: 2s"></div>
-        <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
-            style="animation-delay: 4s"></div>
-    </div>
-    <!-- Scroll Progress Indicator -->
-    <div class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
-        <div id="scroll-progress" class="h-full bg-red-600 transition-all duration-100" style="width: 0%"></div>
+        <div class="bg-shape" style="width: 600px; height: 600px; top: -100px; left: -100px; 
+             background: #60a5fa; animation-delay: 0s;"></div>
+        <div class="bg-shape" style="width: 500px; height: 500px; top: 20%; right: -100px;
+             background: #818cf8; animation-delay: 2s;"></div>
+        <div class="bg-shape" style="width: 400px; height: 400px; bottom: 10%; left: 20%;
+             background: #38bdf8; animation-delay: 4s;"></div>
     </div>
 
+    <!-- Scroll Progress Indicator -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+        <div id="scroll-progress" class="h-full bg-blue-600 transition-all duration-100" style="width: 0%"></div>
+    </div>
 
     <!-- Active Section Indicator -->
     <div class="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 hidden md:flex flex-col space-y-4">
-        <a href="#features" class="scroll-dot bg-gray-300 hover:bg-red-600 transition-all duration-300 ease-in-out"
+        <a href="#features" class="scroll-dot bg-gray-300 hover:bg-blue-600 transition-all duration-300 ease-in-out"
             data-section="features"></a>
-        <a href="#pricing" class="scroll-dot bg-gray-300 hover:bg-red-600 transition-all duration-300 ease-in-out"
+        <a href="#pricing" class="scroll-dot bg-gray-300 hover:bg-blue-600 transition-all duration-300 ease-in-out"
             data-section="pricing"></a>
-        <a href="#testimonials" class="scroll-dot bg-gray-300 hover:bg-red-600 transition-all duration-300 ease-in-out"
+        <a href="#testimonials" class="scroll-dot bg-gray-300 hover:bg-blue-600 transition-all duration-300 ease-in-out"
             data-section="testimonials"></a>
-        <a href="#demo" class="scroll-dot bg-gray-300 hover:bg-red-600 transition-all duration-300 ease-in-out"
+        <a href="#demo" class="scroll-dot bg-gray-300 hover:bg-blue-600 transition-all duration-300 ease-in-out"
             data-section="demo"></a>
-        <a href="#contact" class="scroll-dot bg-gray-300 hover:bg-red-600 transition-all duration-300 ease-in-out"
+        <a href="#contact" class="scroll-dot bg-gray-300 hover:bg-blue-600 transition-all duration-300 ease-in-out"
             data-section="contact"></a>
     </div>
+
     <!-- Navigation -->
-    <nav class="relative z-10 glassmorphism">
+    <nav class="sticky top-0 z-10 glassmorphism">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
-                    <!-- <svg class="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                    </svg> -->
-                    <img src="logo.png" class="w-8 h-8" alt="">
-                    <span class="ml-2 text-xl font-bold text-gray-900">Themiscore</span>
+                    <img src="logo.png" class="w-8 h-8" alt="Themiscore Logo">
+                    <span class="ml-2 text-xl font-semibold text-gray-900">Themiscore</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-700 hover:text-red-600 transition-colors">Features</a>
-                    <a href="#pricing" class="text-gray-700 hover:text-red-600 transition-colors">Pricing</a>
-                    <a href="#testimonials" class="text-gray-700 hover:text-red-600 transition-colors">Why?</a>
-                    <a href="#demo" class="text-gray-700 hover:text-red-600 transition-colors">Demo</a>
+                    <a href="#features" class="text-gray-600 hover:text-blue-600 transition-colors">Features</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-blue-600 transition-colors">Pricing</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition-colors">Why Us</a>
+                    <a href="#demo" class="text-gray-600 hover:text-blue-600 transition-colors">Demo</a>
                 </div>
                 <div class="md:hidden">
-                    <button class="text-gray-700">
+                    <button class="text-gray-600">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -161,31 +154,26 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative px-4 py-20 mx-auto max-w-7xl sm:px-6 lg:px-8 overflow-hidden">
+    <header class="relative px-4 py-20 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="text-center">
-            <div class="inline-block p-2 mb-4 glassmorphism rounded-full">
-                <span class="text-red-800 text-sm font-medium">Transform Your Legal Practice</span>
+            <div class="inline-block p-2 mb-4 bg-blue-50 rounded-full">
+                <span class="text-blue-800 text-sm font-medium">Transform Your Legal Practice</span>
             </div>
             <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-7xl">
                 <span class="block mb-2">Simplify your Legal Research</span>
-                <span
-                    class="block text-red-600 bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-500 to-red-600">
-                    Powered by AI
-                </span>
+                <span class="block text-blue-600">Powered by AI</span>
             </h1>
-            <p class="max-w-md mx-auto mt-6 text-lg text-gray-500 sm:text-xl md:mt-8 md:max-w-3xl">
+            <p class="max-w-md mx-auto mt-6 text-lg text-gray-600 sm:text-xl md:mt-8 md:max-w-3xl">
                 Experience the next generation of legal technology. Streamline your workflow, enhance accuracy, and
                 focus on what matters most - your clients.
             </p>
-
-            <!-- Hero CTA -->
             <div class="mt-8 flex justify-center space-x-4">
-                <a href="#demo"
-                    class="px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors shadow-lg">
+                <a href="#demo" 
+                   class="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm">
                     Watch Demo
                 </a>
                 <a href="#contact"
-                    class="px-8 py-3 bg-white text-red-600 rounded-lg hover:bg-red-50 transition-colors shadow-lg">
+                   class="px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors shadow-sm">
                     Get Started
                 </a>
             </div>
@@ -196,19 +184,19 @@
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glassmorphism p-8 rounded-xl text-center card-hover">
-                    <div class="text-4xl font-bold text-red-600">70%</div>
-                    <div class="mt-2 text-gray-600">Time Saved on Legal Research</div>
+                <div class="glassmorphism p-8 rounded-lg text-center card-hover">
+                    <div class="text-4xl font-bold text-blue-600">70%</div>
+                    <div class="mt-2 text-gray-700">Time Saved on Legal Research</div>
                     <p class="mt-4 text-sm text-gray-500">Automated case law analysis and document review</p>
                 </div>
-                <div class="glassmorphism p-8 rounded-xl text-center card-hover">
-                    <div class="text-4xl font-bold text-red-600">85%</div>
-                    <div class="mt-2 text-gray-600">Increased Accuracy</div>
+                <div class="glassmorphism p-8 rounded-lg text-center card-hover">
+                    <div class="text-4xl font-bold text-blue-600">85%</div>
+                    <div class="mt-2 text-gray-700">Increased Accuracy</div>
                     <p class="mt-4 text-sm text-gray-500">AI-powered document analysis and verification</p>
                 </div>
-                <div class="glassmorphism p-8 rounded-xl text-center card-hover">
-                    <div class="text-4xl font-bold text-red-600">50%</div>
-                    <div class="mt-2 text-gray-600">Cost Reduction</div>
+                <div class="glassmorphism p-8 rounded-lg text-center card-hover">
+                    <div class="text-4xl font-bold text-blue-600">50%</div>
+                    <div class="mt-2 text-gray-700">Cost Reduction</div>
                     <p class="mt-4 text-sm text-gray-500">Streamlined workflows and automated processes</p>
                 </div>
             </div>
@@ -220,9 +208,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12">Powerful Features</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glassmorphism p-8 rounded-xl card-hover">
-                    <div class="inline-block p-3 bg-red-50 rounded-lg mb-4">
-                        <i data-lucide="scale" class="w-6 h-6 text-red-600"></i>
+                <div class="glassmorphism p-8 rounded-lg card-hover">
+                    <div class="inline-block p-3 bg-blue-50 rounded-lg mb-4">
+                        <i data-lucide="scale" class="w-6 h-6 text-blue-600"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Legal Research Automation</h3>
                     <p class="text-gray-600 mb-4">Cut research time by 70% with AI-powered case law analysis. Our
@@ -243,9 +231,9 @@
                     </ul>
                 </div>
 
-                <div class="glassmorphism p-8 rounded-xl card-hover">
-                    <div class="inline-block p-3 bg-red-50 rounded-lg mb-4">
-                        <i data-lucide="book" class="w-6 h-6 text-red-600"></i>
+                <div class="glassmorphism p-8 rounded-lg card-hover">
+                    <div class="inline-block p-3 bg-blue-50 rounded-lg mb-4">
+                        <i data-lucide="book" class="w-6 h-6 text-blue-600"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Document Analysis</h3>
                     <p class="text-gray-600 mb-4">Review contracts and legal documents in minutes. AI-powered analysis
@@ -266,9 +254,9 @@
                     </ul>
                 </div>
 
-                <div class="glassmorphism p-8 rounded-xl card-hover">
-                    <div class="inline-block p-3 bg-red-50 rounded-lg mb-4">
-                        <i data-lucide="sparkles" class="w-6 h-6 text-red-600"></i>
+                <div class="glassmorphism p-8 rounded-lg card-hover">
+                    <div class="inline-block p-3 bg-blue-50 rounded-lg mb-4">
+                        <i data-lucide="sparkles" class="w-6 h-6 text-blue-600"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Predictive Analytics</h3>
                     <p class="text-gray-600 mb-4">Get data-driven insights for better case outcomes. Advanced analytics
@@ -291,14 +279,11 @@
             </div>
         </div>
     </section>
-
-    <!-- Demo Section -->
     <!-- Demo Section -->
     <section id="demo" class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12">See Themiscore in Action</h2>
-            <div class="max-w-3xl mx-auto glassmorphism p-8 rounded-xl">
-                <!-- YouTube Video Container -->
+            <div class="max-w-3xl mx-auto glassmorphism p-8 rounded-lg">
                 <div class="relative" style="padding-bottom: 56.25%;">
                     <iframe class="absolute top-0 left-0 w-full h-full rounded-lg"
                         src="https://www.youtube.com/embed/yFFzFFrFT9w?rel=0&si=0qAzrtq5vMC_dpUM"
@@ -313,13 +298,12 @@
         </div>
     </section>
 
-
     <!-- Pricing Section -->
     <section id="pricing" class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12">Simple, Transparent Pricing</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glassmorphism p-8 rounded-xl card-hover">
+                <div class="glassmorphism p-8 rounded-lg card-hover">
                     <h3 class="text-xl font-semibold mb-4">Starter</h3>
                     <div class="text-4xl font-bold mb-4">$99<span class="text-lg text-gray-500">/mo</span></div>
                     <ul class="space-y-3 mb-8">
@@ -336,15 +320,13 @@
                             Email support
                         </li>
                     </ul>
-                    <button
-                        class="w-full py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                    <button class="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                         Get Started
                     </button>
                 </div>
 
-                <div class="glassmorphism p-8 rounded-xl card-hover scale-105 border-2 border-red-200">
-                    <div
-                        class="absolute top-0 right-0 -translate-y-1/2 px-4 py-1 bg-red-600 text-white rounded-full text-sm">
+                <div class="glassmorphism p-8 rounded-lg card-hover scale-105 border-2 border-blue-200 relative">
+                    <div class="absolute top-0 right-0 -translate-y-1/2 px-4 py-1 bg-blue-600 text-white rounded-full text-sm">
                         Most Popular
                     </div>
                     <h3 class="text-xl font-semibold mb-4">Professional</h3>
@@ -367,13 +349,12 @@
                             Predictive analytics
                         </li>
                     </ul>
-                    <button
-                        class="w-full py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                    <button class="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                         Get Started
                     </button>
                 </div>
 
-                <div class="glassmorphism p-8 rounded-xl card-hover">
+                <div class="glassmorphism p-8 rounded-lg card-hover">
                     <h3 class="text-xl font-semibold mb-4">Enterprise</h3>
                     <div class="text-4xl font-bold mb-4">Custom</div>
                     <ul class="space-y-3 mb-8">
@@ -394,8 +375,7 @@
                             Custom integrations
                         </li>
                     </ul>
-                    <button
-                        class="w-full py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                    <button class="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                         Contact Sales
                     </button>
                 </div>
@@ -408,7 +388,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12">Why Choose Themiscore?</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glassmorphism p-6 rounded-xl card-hover">
+                <div class="glassmorphism p-6 rounded-lg card-hover">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
                             <i data-lucide="search" class="w-6 h-6 text-blue-600"></i>
@@ -425,10 +405,10 @@
                     </div>
                 </div>
 
-                <div class="glassmorphism p-6 rounded-xl card-hover">
+                <div class="glassmorphism p-6 rounded-lg card-hover">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                            <i data-lucide="trending-up" class="w-6 h-6 text-green-600"></i>
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i data-lucide="trending-up" class="w-6 h-6 text-blue-600"></i>
                         </div>
                         <div class="ml-4">
                             <h4 class="font-semibold">Predictive Analytics</h4>
@@ -437,15 +417,15 @@
                     <p class="text-gray-600">Make informed decisions with our advanced analytics tools that analyze
                         historical case data and outcomes.</p>
                     <div class="flex mt-4">
-                        <span class="text-green-600 text-sm font-medium hover:text-green-700 cursor-pointer">Explore
+                        <span class="text-blue-600 text-sm font-medium hover:text-blue-700 cursor-pointer">Explore
                             features →</span>
                     </div>
                 </div>
 
-                <div class="glassmorphism p-6 rounded-xl card-hover">
+                <div class="glassmorphism p-6 rounded-lg card-hover">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
-                            <i data-lucide="users" class="w-6 h-6 text-purple-600"></i>
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i data-lucide="users" class="w-6 h-6 text-blue-600"></i>
                         </div>
                         <div class="ml-4">
                             <h4 class="font-semibold">Perfect for All Practices</h4>
@@ -454,22 +434,21 @@
                     <p class="text-gray-600">Whether you're a solo practitioner or large firm, our platform scales to
                         meet your needs and budget.</p>
                     <div class="flex mt-4">
-                        <span class="text-purple-600 text-sm font-medium hover:text-purple-700 cursor-pointer">View
+                        <span class="text-blue-600 text-sm font-medium hover:text-blue-700 cursor-pointer">View
                             pricing →</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Contact Form Section -->
     <section id="contact" class="py-16 relative overflow-hidden">
         <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glassmorphism p-8 rounded-2xl relative z-10">
-                <h2 class="text-3xl font-bold text-center mb-8">Get Started Today</h2>
+            <div class="glassmorphism p-8 rounded-lg relative z-10">
+                <h2 class="text-3xl font-bold text-center mb-8">Join the waitlist today!</h2>
 
                 <div class="success-message">
-                    <div class="mb-6 bg-green-50 border-green-100 relative pl-12 p-4 rounded">
+                    <div class="mb-6 bg-green-50 border-green-100 relative pl-12 p-4 rounded-lg">
                         <i data-lucide="check" class="absolute left-4 top-4 h-4 w-4 text-green-600"></i>
                         <div class="text-green-800">
                             Thanks for your interest! We'll be in touch shortly.
@@ -482,26 +461,25 @@
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                             <input type="text" id="name" name="name" required
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
                         </div>
 
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Work Email</label>
                             <input type="email" id="email" name="email" required
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
                         </div>
 
                         <div>
-                            <label for="firmName" class="block text-sm font-medium text-gray-700 mb-1">Law Firm
-                                Name</label>
+                            <label for="firmName" class="block text-sm font-medium text-gray-700 mb-1">Law Firm Name</label>
                             <input type="text" id="firmName" name="firmName" required
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
                         </div>
 
                         <div>
                             <label for="size" class="block text-sm font-medium text-gray-700 mb-1">Firm Size</label>
                             <select id="size" name="size" required
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-200 focus:border-red-500 transition-all">
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
                                 <option value="">Select size</option>
                                 <option value="solo">Solo Practice</option>
                                 <option value="small">2-10 Attorneys</option>
@@ -512,7 +490,7 @@
                     </div>
 
                     <button type="submit"
-                        class="w-full flex items-center justify-center px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all">
+                        class="w-full flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all">
                         <i data-lucide="send" class="w-5 h-5 mr-2"></i>
                         Get Started
                     </button>
@@ -521,46 +499,45 @@
         </div>
     </section>
 
-    <!-- Previous sections remain the same until footer -->
-
-    <!-- Footer continued -->
+    <!-- Footer -->
     <footer class="bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center">
-                        <img src="logo.png" class="h-8 w-8" alt="">
-                        <span class="ml-2 text-xl font-bold text-gray-900">Themiscore</span>
+                        <img src="logo.png" class="h-8 w-8" alt="Themiscore Logo">
+                        <span class="ml-2 text-xl font-semibold text-gray-900">Themiscore</span>
                     </div>
                     <p class="mt-4 text-gray-500 text-sm">Empowering legal professionals with AI-driven solutions.</p>
+                    <div class="mt-4">Made with <span class="text-blue-600">Love</span> in 🇨🇦</div>
                 </div>
 
                 <div>
                     <h4 class="font-semibold mb-4">Product</h4>
                     <ul class="space-y-2 text-sm text-gray-500">
-                        <li><a href="#features" class="hover:text-red-600">Features</a></li>
-                        <li><a href="#pricing" class="hover:text-red-600">Pricing</a></li>
-                        <li><a href="#testimonials" class="hover:text-red-600">Why?</a></li>
-                        <li><a href="#demo" class="hover:text-red-600">Demo</a></li>
+                        <li><a href="#features" class="hover:text-blue-600">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-blue-600">Pricing</a></li>
+                        <li><a href="#testimonials" class="hover:text-blue-600">Why Us</a></li>
+                        <li><a href="#demo" class="hover:text-blue-600">Demo</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="font-semibold mb-4">Company</h4>
                     <ul class="space-y-2 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-red-600">About Us</a></li>
-                        <li><a href="#" class="hover:text-red-600">Blog</a></li>
-                        <li><a href="#" class="hover:text-red-600">Careers</a></li>
-                        <li><a href="#" class="hover:text-red-600">Contact</a></li>
+                        <li><a href="#" class="hover:text-blue-600">About Us</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Blog</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Careers</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Contact</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="font-semibold mb-4">Legal</h4>
                     <ul class="space-y-2 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-red-600">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-red-600">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-red-600">Security</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Security</a></li>
                     </ul>
                 </div>
             </div>
@@ -569,13 +546,13 @@
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <p class="text-gray-500 text-sm">&copy; 2024 Themiscore. All rights reserved.</p>
                     <div class="flex space-x-6 mt-4 md:mt-0">
-                        <a href="#" class="text-gray-400 hover:text-red-600">
+                        <a href="#" class="text-gray-400 hover:text-blue-600">
                             <i data-lucide="linkedin" class="w-5 h-5"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-red-600">
+                        <a href="#" class="text-gray-400 hover:text-blue-600">
                             <i data-lucide="twitter" class="w-5 h-5"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-red-600">
+                        <a href="#" class="text-gray-400 hover:text-blue-600">
                             <i data-lucide="github" class="w-5 h-5"></i>
                         </a>
                     </div>
@@ -595,17 +572,16 @@
             </div>
             <nav class="px-4 py-6">
                 <ul class="space-y-4">
-                    <li><a href="#features" class="block py-2 text-gray-700 hover:text-red-600">Features</a></li>
-                    <li><a href="#pricing" class="block py-2 text-gray-700 hover:text-red-600">Pricing</a></li>
-                    <li><a href="#testimonials" class="block py-2 text-gray-700 hover:text-red-600">Why?</a></li>
-                    <li><a href="#demo" class="block py-2 text-gray-700 hover:text-red-600">Demo</a></li>
+                    <li><a href="#features" class="block py-2 text-gray-700 hover:text-blue-600">Features</a></li>
+                    <li><a href="#pricing" class="block py-2 text-gray-700 hover:text-blue-600">Pricing</a></li>
+                    <li><a href="#testimonials" class="block py-2 text-gray-700 hover:text-blue-600">Why Us</a></li>
+                    <li><a href="#demo" class="block py-2 text-gray-700 hover:text-blue-600">Demo</a></li>
                 </ul>
             </nav>
         </div>
     </div>
 
     <script>
-        // Initialize Lucide icons
         // Initialize Lucide icons
         lucide.createIcons();
 
@@ -625,10 +601,7 @@
                 const section = document.getElementById(sectionId);
                 if (section) {
                     const rect = section.getBoundingClientRect();
-                    // Check if the section's middle point is near the viewport's middle
                     const sectionMiddle = rect.top + (rect.height / 2);
-
-                    // If section middle is within the middle third of viewport
                     if (Math.abs(sectionMiddle - viewportMiddle) < (window.innerHeight / 3)) {
                         return sectionId;
                     }
@@ -665,22 +638,18 @@
 
         // Handle dot clicks
         document.querySelectorAll('.scroll-dot').forEach(dot => {
-            dot.addEventListener('click', function (e) {
+            dot.addEventListener('click', function(e) {
                 e.preventDefault();
                 const sectionId = this.getAttribute('data-section');
                 const targetSection = document.getElementById(sectionId);
 
                 if (targetSection) {
-                    // Update URL without jump
                     history.pushState(null, null, `#${sectionId}`);
-
-                    // Smooth scroll to section
                     targetSection.scrollIntoView({
                         behavior: 'smooth',
                         block: 'center'
                     });
 
-                    // Update active state immediately
                     document.querySelectorAll('.scroll-dot').forEach(d => {
                         d.classList.remove('active');
                     });
@@ -714,11 +683,10 @@
 
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    // Close mobile menu if open
                     mobileMenu.classList.add('hidden');
                     document.body.style.overflow = 'auto';
 
@@ -733,34 +701,30 @@
         // Form handling
         const form = document.getElementById('contact-form');
         if (form) {
-            form.addEventListener('submit', function (e) {
+            form.addEventListener('submit', function(e) {
                 const formContainer = form.parentElement;
                 const submitButton = form.querySelector('button[type="submit"]');
 
-                // Add loading state
                 submitButton.disabled = true;
                 submitButton.innerHTML = `
-            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            Processing...
-        `;
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processing...
+                `;
 
-                // Handle form submission success
-                form.addEventListener('formspree:submit', function () {
+                form.addEventListener('formspree:submit', function() {
                     formContainer.classList.add('form-submitted');
                 });
             });
         }
 
         // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initial scroll position check
+        document.addEventListener('DOMContentLoaded', function() {
             updateScrollProgress();
             updateActiveDot();
 
-            // Handle direct links to sections
             if (window.location.hash) {
                 const sectionId = window.location.hash.substring(1);
                 const targetSection = document.getElementById(sectionId);
@@ -777,5 +741,4 @@
         });
     </script>
 </body>
-
 </html>
