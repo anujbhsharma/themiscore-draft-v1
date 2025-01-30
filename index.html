@@ -84,7 +84,6 @@
             }
         }
 
-        /* Refined background shapes */
         .bg-shape {
             position: absolute;
             border-radius: 50%;
@@ -118,6 +117,8 @@
 
     <!-- Active Section Indicator -->
     <div class="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 hidden md:flex flex-col space-y-4">
+        <a href="#waitlist" class="scroll-dot bg-gray-300 hover:bg-blue-600 transition-all duration-300 ease-in-out"
+            data-section="waitlist"></a>
         <a href="#features" class="scroll-dot bg-gray-300 hover:bg-blue-600 transition-all duration-300 ease-in-out"
             data-section="features"></a>
         <a href="#pricing" class="scroll-dot bg-gray-300 hover:bg-blue-600 transition-all duration-300 ease-in-out"
@@ -126,8 +127,6 @@
             data-section="testimonials"></a>
         <a href="#demo" class="scroll-dot bg-gray-300 hover:bg-blue-600 transition-all duration-300 ease-in-out"
             data-section="demo"></a>
-        <a href="#contact" class="scroll-dot bg-gray-300 hover:bg-blue-600 transition-all duration-300 ease-in-out"
-            data-section="contact"></a>
     </div>
 
     <!-- Navigation -->
@@ -154,7 +153,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative px-4 py-20 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <header class="relative px-4 pt-20 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="text-center">
             <div class="inline-block p-2 mb-4 bg-blue-50 rounded-full">
                 <span class="text-blue-800 text-sm font-medium">Transform Your Legal Practice</span>
@@ -167,18 +166,66 @@
                 Experience the next generation of legal technology. Streamline your workflow, enhance accuracy, and
                 focus on what matters most - your clients.
             </p>
-            <div class="mt-8 flex justify-center space-x-4">
-                <a href="#demo" 
-                   class="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm">
-                    Watch Demo
-                </a>
-                <a href="#contact"
-                   class="px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors shadow-sm">
-                    Get Started
-                </a>
-            </div>
         </div>
     </header>
+
+    <!-- Waitlist Form Section (Moved to top) -->
+    <section id="waitlist" class="py-16 relative overflow-hidden">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glassmorphism p-8 rounded-lg relative z-10">
+                <h2 class="text-3xl font-bold text-center mb-8">Join the waitlist today!</h2>
+
+                <div class="success-message">
+                    <div class="mb-6 bg-green-50 border-green-100 relative pl-12 p-4 rounded-lg">
+                        <i data-lucide="check" class="absolute left-4 top-4 h-4 w-4 text-green-600"></i>
+                        <div class="text-green-800">
+                            Thanks for your interest! We'll be in touch shortly.
+                        </div>
+                    </div>
+                </div>
+
+                <form action="https://formspree.io/f/xkgnblel" method="POST" id="contact-form" class="space-y-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Work Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
+                        </div>
+
+                        <div>
+                            <label for="firmName" class="block text-sm font-medium text-gray-700 mb-1">Law Firm Name</label>
+                            <input type="text" id="firmName" name="firmName" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
+                        </div>
+
+                        <div>
+                            <label for="size" class="block text-sm font-medium text-gray-700 mb-1">Firm Size</label>
+                            <select id="size" name="size" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
+                                <option value="">Select size</option>
+                                <option value="solo">Solo Practice</option>
+                                <option value="small">2-10 Attorneys</option>
+                                <option value="medium">11-50 Attorneys</option>
+                                <option value="large">50+ Attorneys</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all">
+                        <i data-lucide="send" class="w-5 h-5 mr-2"></i>
+                        Get Started
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- Stats Section -->
     <section class="py-16">
@@ -279,6 +326,7 @@
             </div>
         </div>
     </section>
+
     <!-- Demo Section -->
     <section id="demo" class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -441,63 +489,6 @@
             </div>
         </div>
     </section>
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-16 relative overflow-hidden">
-        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glassmorphism p-8 rounded-lg relative z-10">
-                <h2 class="text-3xl font-bold text-center mb-8">Join the waitlist today!</h2>
-
-                <div class="success-message">
-                    <div class="mb-6 bg-green-50 border-green-100 relative pl-12 p-4 rounded-lg">
-                        <i data-lucide="check" class="absolute left-4 top-4 h-4 w-4 text-green-600"></i>
-                        <div class="text-green-800">
-                            Thanks for your interest! We'll be in touch shortly.
-                        </div>
-                    </div>
-                </div>
-
-                <form action="https://formspree.io/f/xkgnblel" method="POST" id="contact-form" class="space-y-6">
-                    <div class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                            <input type="text" id="name" name="name" required
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
-                        </div>
-
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Work Email</label>
-                            <input type="email" id="email" name="email" required
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
-                        </div>
-
-                        <div>
-                            <label for="firmName" class="block text-sm font-medium text-gray-700 mb-1">Law Firm Name</label>
-                            <input type="text" id="firmName" name="firmName" required
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
-                        </div>
-
-                        <div>
-                            <label for="size" class="block text-sm font-medium text-gray-700 mb-1">Firm Size</label>
-                            <select id="size" name="size" required
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all">
-                                <option value="">Select size</option>
-                                <option value="solo">Solo Practice</option>
-                                <option value="small">2-10 Attorneys</option>
-                                <option value="medium">11-50 Attorneys</option>
-                                <option value="large">50+ Attorneys</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button type="submit"
-                        class="w-full flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all">
-                        <i data-lucide="send" class="w-5 h-5 mr-2"></i>
-                        Get Started
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="bg-white border-t border-gray-100">
@@ -594,7 +585,7 @@
 
         // Function to get current section
         function getCurrentSection() {
-            const sections = ['features', 'pricing', 'testimonials', 'demo', 'contact'];
+            const sections = ['waitlist', 'features', 'pricing', 'testimonials', 'demo'];
             const viewportMiddle = window.innerHeight / 2;
 
             for (const sectionId of sections) {
