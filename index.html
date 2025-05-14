@@ -160,6 +160,23 @@
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
+
+        .btn-feature {
+            background-color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+            color: var(--blue);
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            padding: 0.75rem 1.75rem;
+            padding-bottom: 30px;
+            width: 75%;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: absolute;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
         
         .btn-secondary:hover {
             background-color: var(--light-red);
@@ -359,6 +376,7 @@
             background-color: var(--white);
             border: 1px solid var(--light-gray);
             padding: 2.5rem;
+            padding-bottom: 5rem;
             transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
@@ -898,13 +916,14 @@
                             <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
                             <span>Access to legal form templates</span>
                         </li>
+
                     </ul>
-                    <button class="btn-primary rounded-none w-full">
+                    <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
                         GET STARTED
                     </button>
                 </div>
 
-                <div class="price-card animate-delay-300">
+                <div class="price-card animate-fade-in-left animate-delay-200">
                     <div class="text-center mb-8">
                         <div class="inline-block p-3 bg-red-100 rounded-full mb-4">
                             <i data-lucide="briefcase" class="w-8 h-8 text-primary"></i>
@@ -932,7 +951,8 @@
                             <span>Basic predictive analytics</span>
                         </li>
                     </ul>
-                    <button class="btn-primary rounded-none w-full">
+                    
+                    <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
                         GET STARTED
                     </button>
                 </div>
@@ -964,7 +984,7 @@
                             <span>Advanced analytics & integrations</span>
                         </li>
                     </ul>
-                    <button class="btn-primary rounded-none w-full">
+                    <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
                         GET STARTED
                     </button>
                 </div>
@@ -1065,7 +1085,7 @@
     <!-- Footer -->
     <footer class="bg-black text-white py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                     <div class="flex items-center mb-6">
                         <span class="text-xl font-bold font-playfair tracking-tight">THEMIS <span class="text-red-400">CORE</span></span>
