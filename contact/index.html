@@ -379,7 +379,7 @@
             transition: all 0.2s ease;
         }
 
-        input[type="email"]:not(:valid, :focus) {
+        input[type="email"].was-focused::not(:valid, :focus) {
             background-color: var(--light-red);
             border: none;
             outline: 2px solid var(--primary-red);
@@ -930,7 +930,7 @@
             }
         });
  
-        const input = document.getElementById('myInput');
+        const input = document.getElementById('email');
             input.addEventListener('focus', function handler() {
             input.classList.add('was-focused');
             input.removeEventListener('focus', handler); // Remove to only trigger once
