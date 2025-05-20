@@ -301,7 +301,7 @@
         }
         
         .nav-link.bold {
-            color: var(--secondary-red);
+            color: var(--primary-red);
             font-weight: 900;
         }
 
@@ -783,9 +783,6 @@
                 <div>
                     <h1 class="hero-headline animate-typewriter">AI-Powered <br><span class="text-primary">Legal Research</span></h1>
                     <div class="drop-cap animate-fade-in animate-delay-500">
-                        <!-- <p class="text-lg text-gray-700 mb-6 max-w-md">
-                            Themis Core reduces legal research time by 70%, analyzes documents with 85% accuracy, and cuts costs by 50% through AI-powered solutions designed specifically for legal professionals.
-                        </p> -->
                         <p class="text-lg text-gray-700 mb-6 max-w-md">
                             Themis Core's AI-powered research system cuts case preparation time while improving outcome accuracy for law firms of all sizes.
                         </p> 
@@ -935,7 +932,7 @@
 
                     </ul>
                     <a href="#waitlist">
-                        <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
+                        <button class="btn-primary rounded-none w-full" id="getStartedEssentials" style="position: absolute;bottom: 30px;width: 75%;">
                             GET STARTED
                         </button>
                     </a>
@@ -970,7 +967,7 @@
                         </li>
                     </ul>
                     <a href="#waitlist">
-                        <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
+                        <button class="btn-primary rounded-none w-full" id="getStartedProfessional" style="position: absolute;bottom: 30px;width: 75%;">
                             GET STARTED
                         </button>
                     </a>
@@ -1004,7 +1001,7 @@
                         </li>
                     </ul>
                     <a href="#waitlist">
-                        <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
+                        <button class="btn-primary rounded-none w-full" id="getStartedEnterprise" style="position: absolute;bottom: 30px;width: 75%;">
                             GET STARTED
                         </button>
                     </a>
@@ -1129,8 +1126,8 @@
                 <div>
                     <h4 class="font-semibold mb-6">COMPANY</h4>
                     <ul class="space-y-3 text-sm text-gray-400">
-                        <li><a href="/about/index.html" class="footer-link hover:underline">About Us</a></li>
-                        <li><a href="/contact/index.html" class="footer-link hover:underline">Contact</a></li>
+                        <li><a href="./about/index.html" class="footer-link hover:underline">About Us</a></li>
+                        <li><a href="./contact/index.html" class="footer-link hover:underline">Contact</a></li>
                     </ul>
                 </div>
 
@@ -1219,9 +1216,20 @@
         });
 
         // Changes the default firm size in the form
-        function changeFirmSize() {
-           
-        };
+        document.getElementById('getStartedEssentials').addEventListener('click', function() {
+            const select = document.getElementById('size');
+            select.value = 'solo'; 
+        });
+
+        document.getElementById('getStartedProfessional').addEventListener('click', function() {
+            const select = document.getElementById('size');
+            select.value = 'small'; 
+        });
+
+        document.getElementById('getStartedEnterprise').addEventListener('click', function() {
+            const select = document.getElementById('size');
+            select.value = 'large';
+        });
 
         // Animations initialization
         function initAnimations() {
@@ -1258,6 +1266,7 @@
             });
         }
 
+        // Changes email error appearance after the user writes into the email input
         const input = document.getElementById('email');
 
         input.addEventListener('focus', function handler() {

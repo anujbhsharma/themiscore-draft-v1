@@ -379,7 +379,7 @@
             transition: all 0.2s ease;
         }
 
-        input[type="email"]:not(:valid, :focus) {
+        input[type="email"].was-focused:not(:valid, :focus) {
             background-color: var(--light-red);
             border: none;
             outline: 2px solid var(--primary-red);
@@ -786,31 +786,136 @@
                 <!-- Feature 1 -->
                 <div class="feature-card animate-fade-in animate-delay-200">
                     <div class="flex items-center mb-6">
-                        <!-- <div class="w-14 h-14 bg-light-red flex items-center justify-center mr-4 feature-icon shadow-sm">
-                        </div> -->
-                        <h3 class="text-xl font-bold">Themis Core is a Canadian legal tech startup offering AI-driven legal research, document automation, and predictive case analytics for law firms</h3>
+                        <h3 class="text-3xl font-bold">Themis Core is a Canadian legal tech startup offering AI-driven legal research, document automation, and predictive case analytics for law firms</h3>
                     </div>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-center">
+                        <div class="flex items-center">
                             <i data-lucide="mail" class="w-5 h-5 text-primary mr-3"></i>
-                            <span>Email: <a href="mailto:info@themiscore.com" class="text-blue-500 hover:text-primary transition-colors">
-                                info@themiscore.com
-                            </a></span>
-                        </li>
-                        <li class="flex items-center">
+                            <span>WHO WE ARE</span>
+                        </div>
+                        <div class="flex items-center">
                             <i data-lucide="phone" class="w-5 h-5 text-primary mr-3"></i>
-                            <span>Telephone: <a href="tel:506-897-4904" class="text-blue-500 hover:text-primary transition-colors">
-                                506-897-4904
-                            </a></span>
+                            <span>WHAT WE CAN DO FOR YOU </span>
+                            <span>Themis Core offers  </span>
+                        </div>
+                        <div class="pt-3 flex items-center">
+                           OUR PLANS: 
+                        </div>
+                        <div class="flex items-center"></divclass>Themis Core has three distinct plansdepending on you needs:  </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Plans -->
+    <section id="pricing" class="py-6 bg-light-red">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="mb-5">PRICING</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="price-card animate-fade-in-left animate-delay-200">
+                    <div class="text-center mb-8">
+                        <div class="inline-block p-3 bg-red-50 rounded-full mb-4">
+                            <i data-lucide="rocket" class="w-8 h-8 text-primary"></i>
+                        </div>
+                        <h5 class="text-xl font-bold">ESSENTIALS</h5>
+                        <div class="text-4xl font-bold my-4">$99<span class="text-sm text-gray-500">/month</span></div>
+                        <p class="text-sm text-gray-500">For solo practitioners</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Core legal research</span>
                         </li>
-                        <li class="flex items-center">
-                            <i data-lucide="earth" class="w-5 h-5 text-primary mr-3"></i>
-                            <span>Location:  <a href="https://www.google.com/maps/place/Planet+Hatch/@45.9315971,-66.660654,17z/data=!4m14!1m7!3m6!1s0x4ca4223a60ec500f:0x802b275e59ffbe77!2sPlanet+Hatch!8m2!3d45.9315971!4d-66.6580791!16s%2Fg%2F11b64nmvvq!3m5!1s0x4ca4223a60ec500f:0x802b275e59ffbe77!8m2!3d45.9315971!4d-66.6580791!16s%2Fg%2F11b64nmvvq?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D" class="text-blue-500 hover:text-primary transition-colors">
-                                50 Crowther Lane Suite 140, Fredericton, NB E3C 0J1
-                            </a></span>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>5 document analyses/month</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Email support (24h)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Access to legal form templates</span>
+                        </li>
+
+                    </ul>
+                    <!-- <a href="#waitlist">
+                        <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
+                            GET STARTED
+                        </button>
+                    </a> -->
+                </div>
+
+                <div class="price-card animate-fade-in-left animate-delay-200">
+                    <div class="text-center mb-8">
+                        <div class="inline-block p-3 bg-red-100 rounded-full mb-4">
+                            <i data-lucide="briefcase" class="w-8 h-8 text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">PROFESSIONAL</h3>
+                        <div class="text-4xl font-bold my-4">$199<span class="text-sm text-gray-500">/month</span></div>
+                        <p class="text-sm text-gray-500">For small to mid-size firms</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Advanced legal research</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>20 document analyses/month</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Priority support (4h)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Basic predictive analytics</span>
                         </li>
                     </ul>
+                    <!-- <a href="#waitlist">
+                        <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
+                            GET STARTED
+                        </button>
+                    </a> -->
                 </div>
+
+                <div class="price-card animate-fade-in-right animate-delay-400">
+                    <div class="text-center mb-8">
+                        <div class="inline-block p-3 bg-red-50 rounded-full mb-4">
+                            <i data-lucide="building" class="w-8 h-8 text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">ENTERPRISE</h3>
+                        <div class="text-4xl font-bold my-4">Custom</div>
+                        <p class="text-sm text-gray-500">For large firms</p>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Unlimited research</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Unlimited document analyses</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>24/7 dedicated support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Advanced analytics & integrations</span>
+                        </li>
+                    </ul>
+                    <!-- <a href="#waitlist">
+                        <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
+                            GET STARTED
+                        </button>
+                    </a> -->
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1018,8 +1123,10 @@
             }
         });
  
+        // Prevents error rendering for email in form upon initial load-in
         const input = document.getElementById('myInput');
-            input.addEventListener('focus', function handler() {
+        
+        input.addEventListener('focus', function handler() {
             input.classList.add('was-focused');
             input.removeEventListener('focus', handler); // Remove to only trigger once
         });
@@ -1036,6 +1143,7 @@
                 observeElement(element);
             });
         }
+        
         
         // Intersection Observer for element animations
         function observeElement(element) {
