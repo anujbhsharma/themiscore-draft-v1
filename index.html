@@ -370,6 +370,12 @@
         .form-group label {
             transition: all 0.2s ease;
         }
+
+        .emailInput:invalid {
+            background-color: var(--light-red);
+            border: none;
+            outline: 2px solid var(--primary-red);
+        }
         
         /* Price cards */
         .price-card {
@@ -746,7 +752,6 @@
                     <span class="logo-text tracking-tight">THEMIS <span class="text-primary">CORE</span></span>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#demo" class="nav-link">Watch Demo</a>
                     <a href="#features" class="nav-link">Features</a>
                     <a href="#pricing" class="nav-link">Pricing</a>
                     <a href="#waitlist" class="nav-link">Register Now</a>
@@ -919,7 +924,9 @@
 
                     </ul>
                     <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
-                        GET STARTED
+                        <a href="#waitlist">
+                            GET STARTED
+                        </a>
                     </button>
                 </div>
 
@@ -951,10 +958,13 @@
                             <span>Basic predictive analytics</span>
                         </li>
                     </ul>
-                    
+                    <a href="#waitlist">
                     <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
-                        GET STARTED
+                        <a href="#waitlist">
+                            GET STARTED
+                        </a>
                     </button>
+                </a>
                 </div>
 
                 <div class="price-card animate-fade-in-right animate-delay-400">
@@ -985,7 +995,9 @@
                         </li>
                     </ul>
                     <button class="btn-primary rounded-none w-full" style="position: absolute;bottom: 30px;width: 75%;">
-                        GET STARTED
+                        <a href="#waitlist">
+                            GET STARTED
+                        </a>
                     </button>
                 </div>
             </div>
@@ -1015,7 +1027,7 @@
                 <form id="contact-form" action="https://formspree.io/f/xkgnblel" method="POST" class="space-y-6">
                     <div class="space-y-5">
                         <div class="form-group">
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                            <label for="name" class="block text-base font-medium text-gray-700 mb-2">Full Name</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     
@@ -1026,18 +1038,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Work Email</label>
+                            <label for="email" class="block text-base font-medium text-gray-700 mb-2">Work Email</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     
-                                </div>
+                                </div class="emailInput">
                                 <input type="email" id="email" name="email" required
                                     class="form-control rounded-none pl-10" placeholder="john@lawfirm.com">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="firmName" class="block text-sm font-medium text-gray-700 mb-2">Law Firm Name</label>
+                            <label for="firmName" class="block text-base font-medium text-gray-700 mb-2">Law Firm Name</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     
@@ -1055,7 +1067,7 @@
                                 </div>
                                 <select id="size" name="size" required
                                     class="form-control rounded-none appearance-none pr-10 pl-10">
-                                    <option value="">Select size</option>
+                                    <option value="" selected disabled>Select size</option>
                                     <option value="solo">Solo Practice</option>
                                     <option value="small">2-10 Attorneys</option>
                                     <option value="medium">11-50 Attorneys</option>
@@ -1098,10 +1110,10 @@
                 <div>
                     <h4 class="font-semibold mb-6">PRODUCT</h4>
                     <ul class="space-y-3 text-sm text-gray-400">
-                        <li><a href="#demo" class="footer-link hover:underline">Watch Demo</a></li>
                         <li><a href="#features" class="footer-link hover:underline">Features</a></li>
                         <li><a href="#pricing" class="footer-link hover:underline">Pricing</a></li>
                         <li><a href="#waitlist" class="footer-link hover:underline">Register Now</a></li>
+                        <li><a href="#demo" class="footer-link hover:underline">Back to Top</a></li>
                     </ul>
                 </div>
 
@@ -1133,7 +1145,6 @@
             </div>
             <nav class="px-4 py-6">
                 <ul class="space-y-4">
-                    <li><a href="#demo"  class="block py-2 text-gray-800 hover:text-primary border-b border-gray-100">Watch Demo</a></li>
                     <li><a href="#features" class="block py-2 text-gray-800 hover:text-primary border-b border-gray-100">Features</a></li>
                     <li><a href="#pricing" class="block py-2 text-gray-800 hover:text-primary border-b border-gray-100">Pricing</a></li>
                     <li><a href="#waitlist"  class="block py-2 text-gray-800 hover:text-primary border-b border-gray-100">Register Now</a></li>
@@ -1182,6 +1193,11 @@
                 }
             }
         });
+
+        // Changes the default firm size in the form
+        function changeFirmSize() {
+           
+        }
 
         // Animations initialization
         function initAnimations() {
