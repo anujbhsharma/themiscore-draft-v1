@@ -379,11 +379,6 @@
             transition: all 0.2s ease;
         }
 
-        input[type="email"].was-focused:not(:valid, :focus) {
-            background-color: var(--light-red);
-            border: none;
-            outline: 2px solid var(--primary-red);
-        }
         
         /* Price cards */
         .price-card {
@@ -753,7 +748,7 @@
     <div class="scroll-indicator" id="scroll-indicator"></div>
 
         <!-- Navigation -->
-        <nav class="navbar sticky top-0 z-50">
+        <nav id="navigation" class="navbar sticky top-0 z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center py-4">
                     <a href="https://themiscore.com">
@@ -846,7 +841,7 @@
                         <li><a href="../#waitlist" class="footer-link hover:underline font-bold">Register Now</a></li>
                         <li><a href="../#features" class="footer-link hover:underline">Features</a></li>
                         <li><a href="../#pricing" class="footer-link hover:underline">Pricing</a></li>
-                        <li><a href="../#demo" class="footer-link hover:underline">Back to Top</a></li>
+                        <li><a href="../#navigation" class="footer-link hover:underline">Back to Top</a></li>
                     </ul>
                 </div>
                 <div>
@@ -863,7 +858,7 @@
                     <p class="text-gray-400 text-sm">&copy; 2025 Themis Core. All rights reserved.</p>
                     
                 </div>
-                <div class="flex space-x-6 mt-4 pt-2 md:mt-0">
+                <div class="flex space-x-6 mt-4 pt-2 md:mt-0 justify-between items-center">
                     <a href="https://ca.linkedin.com/company/themiscore" class="text-gray-500 hover:text-primary transition-colors">
                         <i data-lucide="linkedin" class="w-5 h-5"></i>
                     </a>
@@ -941,19 +936,7 @@
                 }
             }
         });
- 
-        // Prevents error rendering for email in form upon initial load-in
-        const input = document.getElementById('myInput');
-        
-        input.addEventListener('focus', function handler() {
-            input.classList.add('was-focused');
-            input.removeEventListener('focus', handler); // Remove to only trigger once
-        });
 
-        // Changes the default firm size in the form
-        function changeFirmSize() {
-           
-        };
 
         // Animations initialization
         function initAnimations() {
@@ -1094,69 +1077,6 @@
             });
         });
 
-        // Form handling
-        const form = document.getElementById('contact-form');
-        if (form) {
-            // Handle input focus and typing to remove placeholder
-            const formInputs = form.querySelectorAll('input, select');
-            formInputs.forEach(input => {
-                // On focus, add a class to the parent form-group
-                input.addEventListener('focus', function() {
-                    this.closest('.form-group').classList.add('is-focused');
-                    // Clear placeholder when focused
-                    this.setAttribute('data-placeholder', this.getAttribute('placeholder') || '');
-                    this.setAttribute('placeholder', '');
-                });
-                
-                // On blur, if input is empty, restore placeholder and remove class
-                input.addEventListener('blur', function() {
-                    if (this.value === '') {
-                        this.setAttribute('placeholder', this.getAttribute('data-placeholder') || '');
-                        this.closest('.form-group').classList.remove('is-focused');
-                    }
-                });
-                
-                // If field already has value on page load
-                if (input.value !== '') {
-                    input.closest('.form-group').classList.add('is-focused');
-                }
-            });
-
-            // Form submission
-            form.addEventListener("submit", async function(e) {
-                const formContainer = form.closest('div');
-                const successMessage = formContainer.querySelector('.success-message');
-                const submitButton = form.querySelector('button[type="submit"]');
-
-                // Normally we'd handle the form submission here
-                // For demo purposes, just show success message
-                e.preventDefault();
-
-                const formData = new FormData(form);
-                const response = await fetch(form.action, {
-                    method: "POST",
-                    body: formData,
-                    headers: { "Accept": "application/json" }
-                });
-
-                if (response.ok) {
-                    alert("Registration recieved!");
-                    form.reset();
-                } else {
-                alert("Oops! There was a problem.");
-                }
-                
-                // submitButton.disabled = true;
-                submitButton.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Submitted';
-                
-                // Simulate form submission
-                // setTimeout(() => {
-                //     form.style.display = 'none';
-                //     successMessage.classList.remove('hidden');
-                // }, 1500);
-            });
-        }
-
         // Add scroll event listener 
         window.addEventListener('scroll', () => {
             window.requestAnimationFrame(() => {
@@ -1167,171 +1087,3 @@
     </script>
 </body>
 </html>
-
-
-<!-- const AboutUs = () => {
-    const founders = [
-      { name: 'Adaeze Emeka', role: 'CEO', image: ceophoto },
-      { name: 'Anuj Sharma', role: 'CTO', image: ctophoto },
-      { name: 'Razeena Naaz', role: 'COO', image: coophoto },
-    ];
-  
-    const supporters = [
-      { name: 'UNB Faculty of Computer Science', logo: unblogo },
-      { name: 'J Herbert Smith Center', logo: jsmithlogo },
-      { name: 'Mitacs Accelerator Program', logo: mitacslogo },
-    ];
-  
-    const mentors = [
-      { name: 'Dr Kenneth Kent', role: 'Director', image: directorphoto },
-      { name: 'Dr Argyri Panezi', role: 'Legal Advisor', image: advisor },
-      { name: 'Kevin Ferguson', role: 'Business Development Advisor', image: businessadvisor },
-    ];
-  
-    const helpers = [
-      { name: "Igor Oliveira", image: igor },
-      { name: "Dom Blakely", image: dom },
-      { name: "Kush Babbar", image: kush },
-      { name: "Myriam Whale", image: myriam },
-      { name: "Kyle Cullen", image: kyle },
-      { name: "Joseph Page", image: joseph },
-    ];
-  
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-900 overflow-hidden">
-        {/* Subtle background patterns */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-full h-full">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/50 rounded-full filter blur-3xl" />
-            <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gray-100/50 rounded-full filter blur-3xl" />
-          </div>
-        </div>
-  
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-16">
-          {/* Hero Section */}
-          <div className="text-center space-y-8 mb-20">
-            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-gray-900">
-              About <span className="text-blue-600">Themis Core</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Generating case insights at the speed of thought.
-            </p>
-          </div>
-  
-          {/* Mission Section */}
-          <div className="relative mb-20">
-            <div className="bg-white rounded-lg p-8 border border-gray-200 shadow-sm">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Our Mission
-              </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                At Themis Core, we're revolutionizing the legal industry through cutting-edge technology. 
-                Our AI-powered solutions streamline legal research processes, enhance personalization, and improve access to case insights. 
-                We're committed to bridging the gap between law and technology, making legal services more efficient, 
-                accurate, and accessible for everyone.
-              </p>
-            </div>
-          </div>
-  
-          {/* Founders Section */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
-              Our Founders
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {founders.map((founder, index) => (
-                <div
-                  key={index}
-                  className="group relative"
-                >
-                  <div className="bg-white rounded-lg p-8 border border-gray-200 shadow-sm 
-                                 hover:shadow-lg transition-all duration-300">
-                    <img 
-                      src={founder.image} 
-                      alt={founder.name} 
-                      className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-2 border-gray-200"
-                    />
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2 text-center">
-                      {founder.name}
-                    </h3>
-                    <p className="text-lg text-gray-600 text-center">{founder.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-  
-          {/* Mentors Section */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
-              Our Mentors
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {mentors.map((mentor, index) => (
-                <div
-                  key={index}
-                  className="group relative"
-                >
-                  <div className="bg-white rounded-lg p-8 border border-gray-200 shadow-sm 
-                                 hover:shadow-lg transition-all duration-300">
-                    <img 
-                      src={mentor.image} 
-                      alt={mentor.name} 
-                      className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-2 border-gray-200"
-                    />
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2 text-center">
-                      {mentor.name}
-                    </h3>
-                    <p className="text-lg text-gray-600 text-center">{mentor.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-  
-          {/* Supporters Section */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
-              Supported By
-            </h2>
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              {supporters.map((supporter, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm 
-                            hover:shadow-lg transition-all duration-300"
-                >
-                  <img 
-                    src={supporter.logo} 
-                    alt={supporter.name} 
-                    className="h-24 object-contain opacity-80 hover:opacity-100 transition-opacity"
-                  />
-                </div>
-              ))}
-            </div>
-          </section>
-  
-          {/* Contact Section */}
-          <section className="relative">
-            <div className="bg-white rounded-lg p-8 text-center border border-gray-200 shadow-sm">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Get in Touch
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">We'd love to hear from you!</p>
-              <a 
-                href="mailto:info@themiscore.com" 
-                className="group inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 
-                         text-white rounded-lg font-semibold transition-all duration-300"
-              >
-                <Mail className="w-5 h-5 mr-2" />
-                info@themiscore.com
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          </section>
-        </div>
-      </div>
-    );
-  };
-  
-  export default AboutUs; -->
