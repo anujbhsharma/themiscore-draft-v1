@@ -748,78 +748,234 @@
     <div class="scroll-indicator" id="scroll-indicator"></div>
 
         <!-- Navigation -->
-        <nav id="navigation" class="navbar sticky top-0 z-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center py-4">
-                    <a href="https://themiscore.com">
+        <!-- Navigation -->
+       <nav id="navigation" class="navbar sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="https://themiscore.com">
                     <div class="flex items-center">
                         <span class="logo-text tracking-tight">THEMIS <span class="text-primary">CORE</span></span>
                     </div>
-                    </a>
-                    <div class="hidden md:flex space-x-8">
-                        <a href="../#waitlist" class="nav-link bold">Register Now</a>
-                        <a href="../#features" class="nav-link">Features</a>
-                        <a href="../#pricing" class="nav-link">Pricing</a>
-                    </div>
-                    <div class="md:hidden">
-                        <button class="text-black" id="menu-button" aria-label="Menu">
-                            <i data-lucide="menu" class="w-6 h-6"></i>
-                        </button>
-                    </div>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../register/" class="nav-link bold">Register Now</a>
+                    <a href="../index.html#features" class="nav-link">Features</a>
+                    <a href="../index.html#pricing" class="nav-link">Pricing</a>
+                    <a href="../about/" class="nav-link">About</a>
+                    <a href="../contact/" class="nav-link">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-black" id="menu-button" aria-label="Menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
                 </div>
             </div>
-        </nav>    
+        </div>
+    </nav>  
 
     <!-- Main Section -->
-    <section id="features" class="py-6">
+    <!-- Pricing Section -->
+      <section id="pricing" class="py-6 bg-light-red">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-fade-in">
-                <h2 class="mb-5">ABOUT US</h2>
+                <h2 class="mb-5">PRICING</h2>
             </div>
             
-            <div class="feature-grid">
-                <!-- Feature 1 -->
-                <div class="feature-card animate-fade-in animate-delay-200">
-                    <div class="flex items-center mb-4">
-                        <h3 class="text-3xl font-bold">Themis Core is a Canadian legal tech startup offering AI-driven legal research, document automation, and predictive case analytics for law firms</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="price-card animate-fade-in-left animate-delay-200">
+                    <div class="text-center mb-8">
+                        <div class="inline-block p-3 bg-red-50 rounded-full mb-4">
+                            <i data-lucide="rocket" class="w-8 h-8 text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">ESSENTIALS</h3>
+                        <div class="text-4xl font-bold my-4">$99<span class="text-sm text-gray-500">/month</span></div>
+                        <p class="text-sm text-gray-500">For solo practitioners</p>
                     </div>
-                    <div class="flex items-center pt-2 mb-2">
-                        <h3 class="text-2xl font-bold">Our Mission Statement:</h3>
-                    </div>
-                    <div class="flex items-center mb-2">At Themis Core, we're revolutionizing the legal industry through cutting-edge technology. 
-                        Our AI-powered solutions streamline legal research processes, enhance personalization, and improve access to case insights. 
-                        We're committed to bridging the gap between law and technology, making legal services more efficient, 
-                        accurate, and accessible for everyone.
-                    </div>
-                        
-                    <div class="pt-3 text-xl flex items-center">
-                        WHO WE ARE
-                    </div>
-                    <div class="flex items-center">
-                        Themis Core was founded in 2023 by University of New Brunswick graduates 
-                    </div>
+                    <ul class="space-y-4 mb-8 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Core legal research</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>5 document analyses/month</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Email support (24h)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Access to legal form templates</span>
+                        </li>
 
-                    <div class="pt-3 text-xl flex items-center">
-                        OUR LEADERSHIP 
-                    </div>
-                    <div class="flex items-center">
-                        
-                    </div>
+                    </ul>
+                    <a href="#waitlist">
+                        <button class="btn-primary rounded-none w-full" id="getStartedEssentials" style="position: absolute;bottom: 30px;width: 75%;">
+                            GET STARTED
+                        </button>
+                    </a>
+                </div>
 
-                    <div class="pt-3 text-xl flex items-center">
-                        OUR SUPPORTERS 
+                <div class="price-card animate-fade-in-left animate-delay-200">
+                    <div class="text-center mb-8">
+                        <div class="inline-block p-3 bg-red-100 rounded-full mb-4">
+                            <i data-lucide="briefcase" class="w-8 h-8 text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">PROFESSIONAL</h3>
+                        <div class="text-4xl font-bold my-4">$199<span class="text-sm text-gray-500">/month</span></div>
+                        <p class="text-sm text-gray-500">For small to mid-size firms</p>
+                        <div class="most-popular">MOST POPULAR</div>
                     </div>
-                    <div class="flex items-center">
-                        
+                    <ul class="space-y-4 mb-8 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Advanced legal research</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>20 document analyses/month</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Priority support (4h)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Basic predictive analytics</span>
+                        </li>
+                    </ul>
+                    <a href="#waitlist">
+                        <button class="btn-primary rounded-none w-full" id="getStartedProfessional" style="position: absolute;bottom: 30px;width: 75%;">
+                            GET STARTED
+                        </button>
+                    </a>
+                </div>
+
+                <div class="price-card animate-fade-in-right animate-delay-400">
+                    <div class="text-center mb-8">
+                        <div class="inline-block p-3 bg-red-50 rounded-full mb-4">
+                            <i data-lucide="building" class="w-8 h-8 text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">ENTERPRISE</h3>
+                        <div class="text-4xl font-bold my-4">Custom</div>
+                        <p class="text-sm text-gray-500">For large firms</p>
                     </div>
-                        
-                    <div class="pt-3 text-xl flex items-center">
-                        WHAT WE CAN DO FOR YOU
-                    </div>
-                    <div class="flex items-center">
-                        Themis Core offers three distinct plans depending on you needs and firm size: 
+                    <ul class="space-y-4 mb-8 text-gray-600">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Unlimited research</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Unlimited document analyses</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>24/7 dedicated support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 mt-0.5"></i>
+                            <span>Advanced analytics & integrations</span>
+                        </li>
+                    </ul>
+                    <a href="#waitlist">
+                        <button class="btn-primary rounded-none w-full" id="getStartedEnterprise" style="position: absolute;bottom: 30px;width: 75%;">
+                            GET STARTED
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Form Section -->
+    <section id="waitlist" class="py-6 bg-light-red">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white border border-gray-300 p-10 shadow-xl animate-newspaper-fold">
+                <div class="text-center mb-8">
+                    <h2 class="mb-6">EARLY ACCESS</h2>
+                </div>
+
+                <div class="success-message hidden">
+                    <div class="mb-6 bg-green-50 border-t-4 border-green-500 p-8">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-green-100 p-3 rounded-full mb-4">
+                                <i data-lucide="check" class="h-8 w-8 text-green-600"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Application Received</h4>
+                            <p class="text-gray-700">Thank you for your interest in Themis Core. We'll contact you shortly with access details.</p>
+                        </div>
                     </div>
                 </div>
+
+                <form id="contact-form" action="https://formspree.io/f/xkgnblel" method="POST" class="space-y-6">
+                    <div class="space-y-5">
+                        <div class="form-group">
+                            <label for="name" class="block text-base font-medium text-gray-700 mb-2">Full Name</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    
+                                </div>
+                                <input type="text" id="name" name="name" required
+                                    class="form-control rounded-none pl-10" placeholder="John Smith">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="block text-base font-medium text-gray-700 mb-2 focus:outline-none">Work Email</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    
+                                </div class="emailInput">
+                                <input type="email" id="email" name="email" required
+                                placeholder="john@lawfirm.com" class="form-control rounded-none pl-10">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="firmName" class="block text-base font-medium text-gray-700 mb-2">Law Firm Name</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    
+                                </div>
+                                <input type="text" id="firmName" name="firmName" required
+                                    class="form-control rounded-none pl-10" placeholder="Smith & Associates">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="size" class="block text-sm font-medium text-gray-700 mb-2">Firm Size</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    
+                                </div>
+                                <select id="size" name="size" required
+                                    class="form-control rounded-none appearance-none pr-10 pl-10">
+                                    <option value="" selected disabled>Select size</option>
+                                    <option value="solo">Solo Practice</option>
+                                    <option value="small">2-10 Attorneys</option>
+                                    <option value="medium">11-50 Attorneys</option>
+                                    <option value="large">50+ Attorneys</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                                <input type="text" id="_honey" style="display:none">
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="btn-primary rounded-none w-full flex items-center justify-center group">
+                        <span>REGISTER NOW</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </form>
+            </div>
         </div>
     </section>
 
