@@ -748,7 +748,6 @@
     <div class="scroll-indicator" id="scroll-indicator"></div>
 
         <!-- Navigation -->
-        <!-- Navigation -->
        <nav id="navigation" class="navbar sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
@@ -774,8 +773,98 @@
     </nav>  
 
     <!-- Main Section -->
+    <!-- Waitlist Form Section -->
+    <section id="waitlist" class="py-6 bg-light-red">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white border border-gray-300 p-10 shadow-xl animate-newspaper-fold">
+                <div class="text-center mb-8">
+                    <h2 class="mb-6">EARLY ACCESS</h2>
+                </div>
+
+                <div class="success-message hidden">
+                    <div class="mb-6 bg-green-50 border-t-4 border-green-500 p-8">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-green-100 p-3 rounded-full mb-4">
+                                <i data-lucide="check" class="h-8 w-8 text-green-600"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Application Received</h4>
+                            <p class="text-gray-700">Thank you for your interest in Themis Core. We'll contact you shortly with access details.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contact-form" action="https://formspree.io/f/xkgnblel" method="POST" class="space-y-6">
+                    <div class="space-y-5">
+                        <div class="form-group">
+                            <label for="name" class="block text-base font-medium text-gray-700 mb-2">Full Name</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    
+                                </div>
+                                <input type="text" id="name" name="name" required
+                                    class="form-control rounded-none pl-10" placeholder="John Smith">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="block text-base font-medium text-gray-700 mb-2 focus:outline-none">Work Email</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    
+                                </div class="emailInput">
+                                <input type="email" id="email" name="email" required
+                                placeholder="john@lawfirm.com" class="form-control rounded-none pl-10">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="firmName" class="block text-base font-medium text-gray-700 mb-2">Law Firm Name</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    
+                                </div>
+                                <input type="text" id="firmName" name="firmName" required
+                                    class="form-control rounded-none pl-10" placeholder="Smith & Associates">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="size" class="block text-sm font-medium text-gray-700 mb-2">Firm Size</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    
+                                </div>
+                                <select id="size" name="size" required
+                                    class="form-control rounded-none appearance-none pr-10 pl-10">
+                                    <option value="" selected disabled>Select size</option>
+                                    <option value="solo">Solo Practice</option>
+                                    <option value="small">2-10 Attorneys</option>
+                                    <option value="medium">11-50 Attorneys</option>
+                                    <option value="large">50+ Attorneys</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                                <input type="text" id="_honey" style="display:none">
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="btn-primary rounded-none w-full flex items-center justify-center group">
+                        <span>REGISTER NOW</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
-      <section id="pricing" class="py-6 bg-light-red">
+    <section id="pricing" class="py-6 bg-light-red">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-fade-in">
                 <h2 class="mb-5">PRICING</h2>
@@ -885,96 +974,6 @@
                         </button>
                     </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Waitlist Form Section -->
-    <section id="waitlist" class="py-6 bg-light-red">
-        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white border border-gray-300 p-10 shadow-xl animate-newspaper-fold">
-                <div class="text-center mb-8">
-                    <h2 class="mb-6">EARLY ACCESS</h2>
-                </div>
-
-                <div class="success-message hidden">
-                    <div class="mb-6 bg-green-50 border-t-4 border-green-500 p-8">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="bg-green-100 p-3 rounded-full mb-4">
-                                <i data-lucide="check" class="h-8 w-8 text-green-600"></i>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2">Application Received</h4>
-                            <p class="text-gray-700">Thank you for your interest in Themis Core. We'll contact you shortly with access details.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <form id="contact-form" action="https://formspree.io/f/xkgnblel" method="POST" class="space-y-6">
-                    <div class="space-y-5">
-                        <div class="form-group">
-                            <label for="name" class="block text-base font-medium text-gray-700 mb-2">Full Name</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    
-                                </div>
-                                <input type="text" id="name" name="name" required
-                                    class="form-control rounded-none pl-10" placeholder="John Smith">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email" class="block text-base font-medium text-gray-700 mb-2 focus:outline-none">Work Email</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    
-                                </div class="emailInput">
-                                <input type="email" id="email" name="email" required
-                                placeholder="john@lawfirm.com" class="form-control rounded-none pl-10">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="firmName" class="block text-base font-medium text-gray-700 mb-2">Law Firm Name</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    
-                                </div>
-                                <input type="text" id="firmName" name="firmName" required
-                                    class="form-control rounded-none pl-10" placeholder="Smith & Associates">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="size" class="block text-sm font-medium text-gray-700 mb-2">Firm Size</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    
-                                </div>
-                                <select id="size" name="size" required
-                                    class="form-control rounded-none appearance-none pr-10 pl-10">
-                                    <option value="" selected disabled>Select size</option>
-                                    <option value="solo">Solo Practice</option>
-                                    <option value="small">2-10 Attorneys</option>
-                                    <option value="medium">11-50 Attorneys</option>
-                                    <option value="large">50+ Attorneys</option>
-                                </select>
-                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
-                                   
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                                <input type="text" id="_honey" style="display:none">
-                        </div>
-                    </div>
-
-                    <button type="submit"
-                        class="btn-primary rounded-none w-full flex items-center justify-center group">
-                        <span>REGISTER NOW</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                </form>
             </div>
         </div>
     </section>
